@@ -1,0 +1,5 @@
+name: 'Securify Peanut Plug'
+packageKey: 'securify-zigbee-peanut-plug'
+description: 'Supports: Securify Peanut Plug'
+permissions:
+  zigbee: {}

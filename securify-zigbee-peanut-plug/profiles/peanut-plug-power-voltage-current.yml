@@ -1,0 +1,94 @@
+name: peanut-plug-power-voltage-current
+components:
+  - id: main
+    capabilities:
+      - id: switch
+        version: 1
+      - id: powerMeter
+        version: 1
+      - id: voltageMeasurement
+        version: 1
+      - id: currentMeasurement
+        version: 1
+      - id: signalStrength
+        version: 1
+      - id: firmwareUpdate
+        version: 1
+      - id: refresh
+        version: 1
+    categories:
+      - name: SmartPlug
+preferences:
+  - name: "driverVersion"
+    title: "Driver Version"
+    description: "V0.92 - 2022-12-27 - C.Stup<br>Note: firmware must be updated to send power/voltage/current values."
+    required: false
+    preferenceType: boolean
+    definition:
+      default: false
+  - name: "retainState"
+    title: "Retain State after loss of power?"
+    description: "Should the device return to its previous state after power is restored?   Default = Yes"
+    required: true
+    preferenceType: boolean
+    definition:
+      default: true
+  - name: "powerInterval"
+    title: "Power Reporting Interval Minutes"
+    description: "Number of minutes between any power interval reports.   0 = Disable reporting."
+    required: true
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 1440
+      default: 0
+  - name: "powerIntervalMax"
+    title: "Power Reporting Maximum Minutes"
+    description: "Number of minutes between reports if change value is not met.   0 = Disable reporting."
+    required: true
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 1440
+      default: 0
+  - name: "powerReporting"
+    title: "Change in Power (W) for power report"
+    description: "Change required in Power (wattage) before update.  Measured in Watts (decimals allowed). Requires reporting be enabled."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0.1
+      maximum: 1000
+      default: 10.0
+  - name: "voltageReporting"
+    title: "Change in Voltage for power report"
+    description: "Change required in Voltage before update.  Measured in Volts (decimals allowed). Requires reporting be enabled."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0.1
+      maximum: 100.0
+      default: 2
+  - name: "currentReporting"
+    title: "Change in Current for power report"
+    description: "Change required in Current before update.  Measured in Amps (decimals allowed). Requires reporting be enabled."
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 0.1
+      maximum: 10.0
+      default: 0.1
+  - name: "turnoffLockout"
+    title: "Lockout turn off requests"
+    description: "Lockout plug from being remotely turned off.  Any remote turn off requests will be ignored."
+    required: true
+    preferenceType: boolean
+    definition:
+      default: false
+  - name: "signalHistory"
+    title: "Track signal data in History"
+    description: "Archive LQI and RSSI signal strength data in History."
+    required: true
+    preferenceType: boolean
+    definition:
+      default: false
