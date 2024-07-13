@@ -1,0 +1,9 @@
+zwaveManufacturer:
+# Zooz
+  - id: "027A/000C/0003"
+    deviceLabel: Zooz ZSE19 Multisiren
+    manufacturerId: 0x027A
+    productType: 0x000C
+    productId: 0x0003
+    deviceProfileName: zooz-zse19
+

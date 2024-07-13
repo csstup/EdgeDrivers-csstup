@@ -1,0 +1,6 @@
+name: 'Z-Wave Siren CS'
+packageKey: 'zwave-siren-cs'
+description: 'Z-wave Sirens from Zooz and other manufacturers'
+vendorSupportInformation: 'Developer: csstup<br>Web: <a href="https://github.com/csstup/ST-Edge-Drivers">GitHub repo</a><br><br>Supports:<br>- Zooz ZSE19 Multisiren<br>'
+permissions:
+  zwave: {}
