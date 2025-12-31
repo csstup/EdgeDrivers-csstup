@@ -1,0 +1,6 @@
+name: 'Linkind Zigbee Leak Sensor'
+packageKey: 'linkind-zigbee-leak-sensor'
+description: 'Supports: Linkind Zigbee Water Leak Sensor model LS21001'
+vendorSupportInformation: 'Version: V0.95 - 2025-12-31<br>Developer: csstup'
+permissions:
+  zigbee: {}

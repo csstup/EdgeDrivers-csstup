@@ -1,0 +1,25 @@
+name: water-battery-voltage-signal
+components:
+- id: main
+  capabilities:
+  - id: waterSensor
+    version: 1
+  - id: voltageMeasurement
+    version: 1
+  - id: firmwareUpdate
+    version: 1
+  - id: signalStrength
+    version: 1
+  - id: battery
+    version: 1
+  categories:
+  - name: LeakSensor
+preferences:
+  - name: "batteryConfiguration"
+    title: "Battery Updates"
+    description: "Configured to update every 12 hours or on .1V/1% change"
+    required: false
+    preferenceType: string
+    definition:
+      stringType: paragraph
+

@@ -1,0 +1,271 @@
+{
+    "mnmn": "SmartThingsCommunity",
+    "vid": "349c27c6-578c-371f-8c81-fc54a7915bf5",
+    "version": "0.0.1",
+    "icons": [
+        {
+            "group": "main",
+            "runningConditions": [],
+            "badge": [
+                {
+                    "iconUrl": "badge://sw_updatable",
+                    "visibleConditions": [
+                        {
+                            "component": "main",
+                            "capability": "firmwareUpdate",
+                            "version": 1,
+                            "value": "updateAvailable.value",
+                            "valueType": "boolean",
+                            "operator": "EQUALS",
+                            "operand": "true"
+                        }
+                    ]
+                }
+            ],
+            "productKeys": []
+        }
+    ],
+    "dashboard": {
+        "states": [
+            {
+                "label": "{{water.value}}",
+                "alternatives": [
+                    {
+                        "key": "wet",
+                        "value": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_WET",
+                        "type": "active"
+                    },
+                    {
+                        "key": "dry",
+                        "value": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_DRY",
+                        "type": "inactive"
+                    }
+                ],
+                "capability": "waterSensor",
+                "version": 1,
+                "component": "main",
+                "composite": false,
+                "group": "main",
+                "transient": false
+            }
+        ],
+        "actions": [],
+        "basicPlus": []
+    },
+    "detailView": [
+        {
+            "capability": "waterSensor",
+            "version": 1,
+            "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT",
+            "displayType": "state",
+            "state": {
+                "label": "{{water.value}}",
+                "alternatives": [
+                    {
+                        "key": "wet",
+                        "value": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_WET",
+                        "type": "active"
+                    },
+                    {
+                        "key": "dry",
+                        "value": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_DRY",
+                        "type": "inactive"
+                    }
+                ]
+            },
+            "component": "main"
+        },
+        {
+            "capability": "voltageMeasurement",
+            "version": 1,
+            "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.VOLTAGEMEASUREMENT_DEFAULT",
+            "displayType": "state",
+            "state": {
+                "label": "{{voltage.value}} V",
+                "unit": "voltage.unit",
+                "range": [2.5, 3.0],
+                "step": 0.01
+            },
+            "component": "main"
+        },
+        {
+            "capability": "signalStrength",
+            "version": 1,
+            "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.SIGNALSTRENGTH_DEFAULT",
+            "displayType": "state",
+            "state": {
+                "label": "{{lqi.value}}"
+            },
+            "component": "main"
+        },
+        {
+            "capability": "signalStrength",
+            "version": 1,
+            "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.SIGNALSTRENGTH_DEFAULT",
+            "displayType": "state",
+            "state": {
+                "label": "{{rssi.value}}",
+                "unit": "rssi.unit"
+            },
+            "component": "main"
+        },
+        {
+            "capability": "battery",
+            "version": 1,
+            "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.BATTERY_DEFAULT",
+            "displayType": "slider",
+            "slider": {
+                "range": [
+                    0,
+                    100
+                ],
+                "unit": "battery.unit",
+                "value": "battery.value",
+                "valueType": "integer"
+            },
+            "component": "main"
+        }
+    ],
+    "automation": {
+        "conditions": [
+            {
+                "capability": "waterSensor",
+                "version": 1,
+                "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT",
+                "displayType": "list",
+                "list": {
+                    "alternatives": [
+                        {
+                            "key": "wet",
+                            "value": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_WET",
+                            "type": "active"
+                        },
+                        {
+                            "key": "dry",
+                            "value": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_DRY",
+                            "type": "inactive"
+                        }
+                    ],
+                    "value": "water.value",
+                    "multiSelectable": false
+                },
+                "exclusion": [],
+                "component": "main"
+            },
+            {
+                "capability": "voltageMeasurement",
+                "version": 1,
+                "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.VOLTAGEMEASUREMENT_DEFAULT",
+                "displayType": "numberField",
+                "numberField": {
+                    "value": "voltage.value",
+                    "valueType": "number",
+                    "unit": "voltage.unit"
+                },
+                "exclusion": [],
+                "component": "main"
+            },
+            {
+                "capability": "signalStrength",
+                "version": 1,
+                "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.SIGNALSTRENGTH_DEFAULT",
+                "displayType": "numberField",
+                "numberField": {
+                    "value": "lqi.value",
+                    "valueType": "integer",
+                    "range": [
+                        0,
+                        255
+                    ]
+                },
+                "exclusion": [],
+                "component": "main"
+            },
+            {
+                "capability": "signalStrength",
+                "version": 1,
+                "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.SIGNALSTRENGTH_DEFAULT",
+                "displayType": "numberField",
+                "numberField": {
+                    "value": "rssi.value",
+                    "valueType": "number",
+                    "unit": "rssi.unit",
+                    "range": [
+                        -200,
+                        0
+                    ]
+                },
+                "exclusion": [],
+                "component": "main"
+            },
+            {
+                "capability": "battery",
+                "version": 1,
+                "label": "___PO_CODE_CAPABILITY.SMARTTHINGS.BATTERY_DEFAULT",
+                "displayType": "numberField",
+                "numberField": {
+                    "value": "battery.value",
+                    "valueType": "integer",
+                    "unit": "battery.unit",
+                    "range": [
+                        0,
+                        100
+                    ]
+                },
+                "exclusion": [],
+                "component": "main"
+            }
+        ],
+        "actions": []
+    },
+    "dpInfo": [
+        {
+            "os": "ios",
+            "dpUri": "plugin://com.samsung.ios.plugin.stplugin/assets/files/index.html",
+            "arguments": []
+        },
+        {
+            "os": "android",
+            "dpUri": "plugin://com.samsung.android.plugin.stplugin",
+            "arguments": []
+        },
+        {
+            "os": "web",
+            "dpUri": "wwst://com.samsung.one.plugin.stplugin",
+            "arguments": []
+        }
+    ],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "label": "Water sensor",
+                    "po": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT"
+                },
+                {
+                    "label": "Dry",
+                    "po": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_DRY"
+                },
+                {
+                    "label": "Wet",
+                    "po": "___PO_CODE_CAPABILITY.SMARTTHINGS.WATERSENSOR_DEFAULT_ATTRIBUTES_WATER_WET"
+                },
+                {
+                    "label": "Signal strength",
+                    "po": "___PO_CODE_CAPABILITY.SMARTTHINGS.SIGNALSTRENGTH_DEFAULT"
+                },
+                {
+                    "label": "Battery",
+                    "po": "___PO_CODE_CAPABILITY.SMARTTHINGS.BATTERY_DEFAULT"
+                },
+                {
+                    "label": "Voltage",
+                    "po": "___PO_CODE_CAPABILITY.SMARTTHINGS.VOLTAGEMEASUREMENT_DEFAULT"
+                }
+            ]
+        }
+    ],
+    "manufacturerName": "SmartThingsCommunity",
+    "presentationId": "349c27c6-578c-371f-8c81-fc54a7915bf5"
+}
